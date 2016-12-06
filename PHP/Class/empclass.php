@@ -58,7 +58,7 @@
 											<div class="extra content">
 
 												<center>
-												<button class="ui green basic button">Edit <!-- put onclick=ajax code store id in session here 1st check if can execute modal then store id in session then show modal--> 
+												<button class="ui green basic button" onclick="showmodal()">Edit <!-- put onclick=ajax code store id in session here 1st check if can execute modal then store id in session then show modal--> 
 												</button>
 												<button class="ui red basic button" onclick="if(confirm('Are you sure you want to delete client?')) delete_emp(<?php echo $row['empID']; ?>);">Delete
 												</button>

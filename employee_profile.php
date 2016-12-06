@@ -5,14 +5,14 @@
 	<meta charset = "utf-8">
 		<title> Employee Overview </title>
 		<link rel = "stylesheet" type = "text/css" href="semantic/semantic.min.css">
-		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
+		<link href="Libraries/font_opensans.css" rel="stylesheet">
 		<script src="semantic/semantic.js"></script>
 		<script src="semantic/semantic.min.js"></script>
-		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.4/semantic.css">
-		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.4/components/modal.min.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.4/semantic.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.4/components/modal.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="Libraries/semantic_ui_css.css">
+		<link rel="stylesheet" type="text/css" href="Libraries/semantic_ui_modal.css">
+		<script src="Libraries/jquery_1.11.1.js"></script>
+		<script src="Libraries/semantic_ui_ajax.js"></script>
+		<script src="Libraries/semantic_ui_ajax_modal.js"></script>
 
 	</head>
 
@@ -233,6 +233,13 @@
 </div>
 
 <script>
+
+			function showmodal(){
+
+
+				$('.ui.modal').modal('show');
+
+			}
 
 
 			function delete_emp(getid) {
