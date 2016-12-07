@@ -1,12 +1,8 @@
-
-<?php session_start(); ?>
-
 <!DOCTYPE html>
 <html>
 
 	<head>
-
-		<meta charset = "utf-8">
+	<meta charset = "utf-8">
 		<title> Employee Overview </title>
 		<link rel = "stylesheet" type = "text/css" href="semantic/semantic.min.css">
 		<link href="Libraries/font_opensans.css" rel="stylesheet">
@@ -17,8 +13,6 @@
 		<script src="Libraries/jquery_1.11.1.js"></script>
 		<script src="Libraries/semantic_ui_ajax.js"></script>
 		<script src="Libraries/semantic_ui_ajax_modal.js"></script>
-
-		<?php include ("modal.php"); ?>
 
 	</head>
 
@@ -161,24 +155,21 @@
 <div class="ui modal" style="margin-top: -207.82px;">
 
 	<div class="header">
-
 		<div class="ui grid">
 
 			<div class="thirteen wide column">
-				Employee's Information
-			</div>
+		      Employee's Information
+		    </div>
 
-			<div class="three wide column"	style="position: relative; right:-100px; margin-top: 2px;">
+			<div class="three wide clumn"	style="position: relative; right:-100px; margin-top: 10px;">
+					   	<div class="actions">
+					      <div class="ui red deny icon button" style="padding: 5px 5px 5px 5px;">
+					        <i class="remove icon"></i>
+					      </div>
+		    			</div>
 
-				<div class="actions">
-					<div class="ui red deny icon button" style="padding: 5px 5px 5px 5px;">
-						<i class="remove icon"></i>
-					</div>
-				</div>
-
-			</div>
-
-		</div>
+	    	</div>
+	    </div>
 
     </div>
 		    <div class="image content">
@@ -230,6 +221,15 @@
 										</div>
 								     </div>
 
+								      <div class="field" style="margin-left: 10px; margin-right: 10px;">
+								        <label>Description</label>
+								        <div class="fields">
+									          <div class="sixteen wide field">
+									           	 <input type="text" name="emp_add" placeholder="Description">
+									          </div>
+								        </div>
+								     </div>
+
 								      <div class="actions">
 									<input class="ui positive icon button" type="submit" name="submit" value="SUBMIT" style="position: relative; left:500px;">
 
@@ -243,50 +243,13 @@
 
 <script>
 
-			function set_session(getid){
+			function showmodal(){
 
-				$.ajax({
 
-					url: "PHP/set_session.php",
-					type: "POST",
-					data: {id: getid},
-
-				});
+				$('.ui.modal').modal('show');
 
 			}
 
-			function set_modal(getid,i,element_id){
-
-				$.ajax({
-
-					url: "PHP/AjaxProcess/set_emp_modal.php",
-					type: "POST",
-					data: {id: getid, return: i},
-					success: function(resultdata) {
-
-						$(element_id).val($.trim(resultdata));
-
-					}
-
-				});
-
-			}
-
-			function showmodal(getid){
-
-				var element_id = ["#emp_fn","#emp_ln","#emp_add","#emp_nat","#emp_pos","#emp_desc"];
-
-				for (i = 1; i <=6; i++){
-
-					set_modal(getid,i,element_id[i-1]);
-
-				}
-
-				set_session(getid);
-
-				$('.ui.modal.edit').modal('show');
-
-			}
 
 			function delete_emp(getid) {
 
