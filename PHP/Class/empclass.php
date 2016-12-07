@@ -58,7 +58,7 @@
 											<div class="extra content">
 
 												<center>
-												<button class="ui green basic button" onclick="showmodal(<?php echo $row['empID']; ?>)">Edit <!-- put onclick=ajax code store id in session here 1st check if can execute modal then store id in session then show modal--> 
+												<button class="ui green basic button" onclick="showmodal(<?php echo $row['empID']; ?>)">Edit <!-- put onclick=ajax code store id in session here 1st check if can execute modal then store id in session then show modal-->
 												</button>
 												<button class="ui red basic button" onclick="if(confirm('Are you sure you want to delete client?')) delete_emp(<?php echo $row['empID']; ?>);">Delete
 												</button>
@@ -77,6 +77,29 @@
 
 				}//END OF LOADEMP
 
+				public function updateemp($fn,$ln,$add,$nat,$pos,$pic,$id){
+
+					include ("../Connection/connection.php");
+
+					if ($pic != ""){
+
+							$query = "UPDATE tblemployee SET empFN='$fn',empLN='$ln',empAdd='$add',
+											empNat='$nat', empPos='$pos' WHERE empID = '$id'";
+
+					}else {
+
+						$query = "UPDATE tblemployee SET empFN='$fn',empLN='$ln',empAdd='$add',
+										empNat='$nat', empPos='$pos', empPic=$pic WHERE empID = '$id'";
+
+					}
+
+					if ($con->query($query) == TRUE){
+
+						echo "SUCCESS";
+
+					}
+
+				}
 
 			}//END OF CLASS
 

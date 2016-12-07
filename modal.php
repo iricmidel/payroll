@@ -34,7 +34,7 @@
 
 				<div class="ui header">Select a Photo</div>
 
-				<form action="PHP/EmpProcess/save_emp.php" class="ui form"="save_emp.php" method="post" enctype="multipart/form-data" style="overflow:scroll; overflow-x:hidden; height: 300px; width: 900px;">Select image to upload:<br /><br />
+				<form action="PHP/EmpProcess/update_emp.php" class="ui form"="save_emp.php" method="post" enctype="multipart/form-data" style="overflow:scroll; overflow-x:hidden; height: 300px; width: 900px;">Select image to upload:<br /><br />
 
 
 					<input style="width: 209px;" type="file" name="fileToUpload" id="fileToUpload">

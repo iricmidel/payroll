@@ -1,3 +1,6 @@
+
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -240,6 +243,18 @@
 
 <script>
 
+			function set_session(getid){
+
+				$.ajax({
+
+					url: "PHP/set_session.php",
+					type: "POST",
+					data: {id: getid},
+
+				});
+
+			}
+
 			function set_modal(getid,i,element_id){
 
 				$.ajax({
@@ -264,8 +279,10 @@
 				for (i = 1; i <=6; i++){
 
 					set_modal(getid,i,element_id[i-1]);
-					
+
 				}
+
+				set_session(getid);
 
 				$('.ui.modal.edit').modal('show');
 
