@@ -1,3 +1,6 @@
+
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -13,6 +16,8 @@
 		<script src="Libraries/jquery_1.11.1.js"></script>
 		<script src="Libraries/semantic_ui_ajax.js"></script>
 		<script src="Libraries/semantic_ui_ajax_modal.js"></script>
+
+    <?php include("modal.php"); ?>
 
 	</head>
 
@@ -243,13 +248,50 @@
 
 <script>
 
-			function showmodal(){
+      function set_session(getid){
 
+        $.ajax({
 
-				$('.ui.modal').modal('show');
+          url: "PHP/set_session.php",
+          type: "POST",
+          data: {id: getid},
 
-			}
+        });
 
+      }
+
+      function set_modal(getid,i,element_id){
+
+        $.ajax({
+
+          url: "PHP/AjaxProcess/set_emp_modal.php",
+          type: "POST",
+          data: {id: getid, return: i},
+          success: function(resultdata) {
+
+            $(element_id).val($.trim(resultdata));
+
+          }
+
+        });
+
+      }
+
+      function showmodal(getid){
+
+        var element_id = ["#emp_fn","#emp_ln","#emp_add","#emp_nat","#emp_pos","#emp_desc"];
+
+        for (i = 1; i <=6; i++){
+
+          set_modal(getid,i,element_id[i-1]);
+
+        }
+
+        set_session(getid);
+
+        $('.ui.modal.edit').modal('show');
+
+      }
 
 			function delete_emp(getid) {
 

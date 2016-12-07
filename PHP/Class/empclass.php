@@ -3,12 +3,12 @@
 
 			class ManageEmployeeClass{
 
-				public function saveemp($fn,$ln,$add,$nat,$pos,$pic){
+				public function saveemp($fn,$ln,$add,$nat,$pos,$desc,$pic){
 
 					include ("../Connection/connection.php");
 
-					$query = "INSERT INTO tblemployee (empFN,empLN,empAdd,empNat,empPos,empPic)
-									VALUES ('$fn','$ln','$add','$nat','$pos','$pic')";
+					$query = "INSERT INTO tblemployee (empFN,empLN,empAdd,empNat,empPos,empPic,empDesc)
+									VALUES ('$fn','$ln','$add','$nat','$pos','$pic','$desc')";
 
 
 					if ($con->query($query) == TRUE){
@@ -38,12 +38,12 @@
 									<div class="ui card">
 
 											<div class="image">
-												<img src="uploads/<?php echo $row["empPic"] ?>">
+												<img src="uploads/<?php echo $row["empPic"] ?>" style= "height: 150px">
 											</div>
 
 											<div class="content">
 
-												<a class="header"><?php echo $row["empLN"] . ", " . $row["empFN"] ?></a> <!-- EMP NAME -->
+												<div class="header" style="height: 40px"><?php echo $row["empLN"] . ", " . $row["empFN"] ?> </div> <!-- EMP NAME -->
 
 												<div class="meta">
 													<span class="date"><?php echo $row["empPos"] ?></span> <!-- EMP POS -->
@@ -77,19 +77,19 @@
 
 				}//END OF LOADEMP
 
-				public function updateemp($fn,$ln,$add,$nat,$pos,$pic,$id){
+				public function updateemp($fn,$ln,$add,$nat,$pos,$desc,$pic,$id){
 
 					include ("../Connection/connection.php");
 
-					if ($pic != ""){
+					if ($pic == ""){
 
 							$query = "UPDATE tblemployee SET empFN='$fn',empLN='$ln',empAdd='$add',
-											empNat='$nat', empPos='$pos' WHERE empID = '$id'";
+											empNat='$nat', empPos='$pos', empDesc='$desc' WHERE empID = '$id'";
 
 					}else {
 
 						$query = "UPDATE tblemployee SET empFN='$fn',empLN='$ln',empAdd='$add',
-										empNat='$nat', empPos='$pos', empPic=$pic WHERE empID = '$id'";
+										empNat='$nat', empPos='$pos', empDesc='$desc', empPic=$pic WHERE empID = '$id'";
 
 					}
 

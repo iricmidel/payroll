@@ -81,7 +81,7 @@
 						<label>Description</label>
 						<div class="fields">
 							<div class="sixteen wide field">
-								<input type="text" name="emp_add" placeholder="Description" id="emp_desc">
+								<input type="text" name="emp_desc" placeholder="Description" id="emp_desc">
 							</div>
 						</div>
 					</div>
