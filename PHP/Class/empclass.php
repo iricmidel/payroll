@@ -88,8 +88,10 @@
 
 					}else {
 
+            echo "dasdasdasds";
+
 						$query = "UPDATE tblemployee SET empFN='$fn',empLN='$ln',empAdd='$add',
-										empNat='$nat', empPos='$pos', empDesc='$desc', empPic=$pic WHERE empID = '$id'";
+										empNat='$nat', empPos='$pos', empDesc='$desc', empPic='$pic' WHERE empID = '$id'";
 
 					}
 

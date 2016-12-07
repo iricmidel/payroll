@@ -11,7 +11,8 @@
           && (isset($_POST["emp_ln"]) && !empty($_POST["emp_ln"]))
           && (isset($_POST["emp_add"]) && !empty($_POST["emp_add"]))
           && (isset($_POST["emp_nat"]) && !empty($_POST["emp_nat"]))
-          && (isset($_POST["emp_pos"]) && !empty($_POST["emp_pos"]))){
+          && (isset($_POST["emp_pos"]) && !empty($_POST["emp_pos"]))
+          && (!file_exists($_FILES["fileToUpload"]["tmp_name"]))){
 
           $pic = "";
           $desc = "";
